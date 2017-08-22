@@ -4,6 +4,8 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {VinhosComponent} from './components/vinhos/vinhos.component';
 import {VinhosService} from './services/vinhos.service';
+import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {VinhoApi} from './vinho-api';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import {VinhosService} from './services/vinhos.service';
     VinhosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    InMemoryWebApiModule.forRoot(VinhoApi)
   ],
   providers: [VinhosService],
   bootstrap: [AppComponent]
