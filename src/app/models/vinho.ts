@@ -5,5 +5,5 @@ export class Vinho {
   uva: string;
   fabricante: string;
   paisOrigem: string;
-  anoSafra: string;
+  anoSafra: number;
 }
