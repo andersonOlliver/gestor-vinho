@@ -6,6 +6,7 @@ import {VinhosComponent} from './components/vinhos/vinhos.component';
 import {VinhosService} from './services/vinhos.service';
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {VinhoApi} from './vinho-api';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {VinhoApi} from './vinho-api';
   ],
   imports: [
     BrowserModule,
+    HttpModule  ,
     InMemoryWebApiModule.forRoot(VinhoApi)
   ],
   providers: [VinhosService],
