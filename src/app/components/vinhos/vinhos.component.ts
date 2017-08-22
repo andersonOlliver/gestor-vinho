@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Vinho} from '../../models/vinho';
+import {VinhosService} from '../../services/vinhos.service';
 
 @Component({
   selector: 'app-vinhos',
@@ -10,29 +11,14 @@ export class VinhosComponent implements OnInit {
 
   public vinhos: Array<Vinho>;
 
-  constructor() {
+  constructor(private vinhoService: VinhosService) {
   }
 
   ngOnInit() {
-    this.vinhos = new Array<Vinho>();
-    this.vinhos.push(this.criarVinho(1, 'Casillero Del Diablo', 'Carbenet Suavignhon',
-      'Tinto', 'Concha y Toro', 2010, 'Chile'));
-    this.vinhos.push(this.criarVinho(2, 'Casillero Del Diablo', 'Merlot',
-      'Tinto', 'Concha y Toro', 2015, 'Chile'));
+    this.vinhos = this.vinhoService.listar();
   }
 
 
-  private criarVinho(id: number, nome: string, uva: string, classificacao: string,
-                     fabricante: string, anoSafra: number, paisOrigem: string): Vinho {
-    let vinho: Vinho = new Vinho();
-    vinho.id = id;
-    vinho.nome = nome;
-    vinho.uva = uva;
-    vinho.classificacao = classificacao;
-    vinho.fabricante = fabricante;
-    vinho.anoSafra = anoSafra;
-    vinho.paisOrigem = paisOrigem;
-    return vinho;
-  }
+
 
 }
