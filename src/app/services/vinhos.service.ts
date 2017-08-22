@@ -7,13 +7,13 @@ export class VinhosService {
   constructor() {
   }
 
-  public listar(): Array<Vinho> {
+  public listar(): Promise<Array<Vinho>> {
     let vinhos = new Array<Vinho>();
     vinhos.push(this.criarVinho(1, 'Casillero Del Diablo', 'Carbenet Suavignhon',
       'Tinto', 'Concha y Toro', 2010, 'Chile'));
     vinhos.push(this.criarVinho(2, 'Casillero Del Diablo', 'Merlot',
       'Tinto', 'Concha y Toro', 2015, 'Chile'));
-    return vinhos;
+    return Promise.resolve(vinhos);
   }
 
   private criarVinho(id: number, nome: string, uva: string, classificacao: string,

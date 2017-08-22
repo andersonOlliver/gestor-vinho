@@ -15,10 +15,13 @@ export class VinhosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.vinhos = this.vinhoService.listar();
+    this.vinhoService.listar()
+      .then((vinhos: Array<Vinho>) => {
+        this.vinhos = vinhos;
+      }).catch((error: any) => {
+      console.log(error);
+    });
   }
-
-
 
 
 }
